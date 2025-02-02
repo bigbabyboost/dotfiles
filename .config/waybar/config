@@ -1,0 +1,94 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 20,
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "modules-left": ["custom/launcher","niri/workspaces", "niri/window", "tray"],
+    "modules-center": ["custom/updater", "network", "pulseaudio","backlight"],
+    "modules-right": ["cpu", "memory", "temperature","battery","clock","custom/power"],
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["",""]
+    },
+    "battery": {
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='Font Awesome 5 Free'></span> <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 5 Free'></span> <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "interval": 2,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false,
+        "on-click": "2"
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 1,
+        "format": "\uf017 {:%H:%M:%S}",
+        "format-alt": "\uf133 {:%Y-%m-%d %H:%M:%S}"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "\uf2db {usage}%",
+        "tooltip": true
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {used}G",
+        "tooltip": true,
+        "tooltip-format": "RAM: {used}G / {total}G\nSwap: {swapUsed}G / {swapTotal}G"
+    },
+     "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+        // "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    },
+    "network": {
+        "interval": 1,
+        "format-wifi": "\uf1eb {essid} ({signalStrength}%)",
+        "format-ethernet": "\uf6ff {ipaddr}/{cidr}",
+        "format-linked": "\uf059 No IP ({ifname})",
+        "format-disconnected": "\uf071 Disconnected",
+        "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+        "format-alt": "\uf6ff {ifname}: {ipaddr}/{cidr}",
+        //"on-click-right": "bash ~/gitPackage/rofi-network-manager/rofi-network-manager.sh"
+        "on-click-right": "alacritty --class floating -e nmtui-connect"
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-muted": "\uf6a9",
+        "format-bluetooth": "{icon}\uf294 {volume}%",
+        "format-bluetooth-muted": "\ufa69 {icon}\uf294",
+        "format-icons": {
+            "default": ["\uf026", "\uf027", "\uf028"]
+        },
+        "on-click-right": "pavucontrol",
+        "ignored-sinks": ["AudioRelay Virtual Sink", "Recorder Sink"]
+    },
+    "custom/launcher":{
+        "format": "Apps",
+        "on-click": "rofi -show drun",
+    },
+    "custom/power":{
+        "format": "",
+        "on-click": "~/.config/rofi/powermenu/type-5/powermenu.sh",
+    },
+    "custom/updater":{
+        "format": "<span font='JetBrain Mono 15'>󰣇</span>",
+        "on-click": "ghostty -e yay -Syu",
+        "tooltip": true,
+        "tooltip-format": "Yay update"
+    }
+}

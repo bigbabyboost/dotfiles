@@ -1,0 +1,117 @@
+[config]
+
+#[templates.hyprland]
+#input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+#output_path = '~/.config/hypr/colors.conf'
+
+#pre_hook = 'ags -q '
+post_hook = 'sh ~/.config/matugen/scripts/reload'
+
+[templates.gitui]
+input_path = '~/.config/matugen/templates/gitui.ron'
+output_path = '~/.config/gitui/theme.ron'
+
+# [templates.kitty]
+# input_path = '~/.config/matugen/templates/kitty-colors.conf'
+# output_path = '~/.config/kitty/themes/matugen.conf'
+# post_hook = 'kitten themes --reload-in=all matugen'
+
+[templates.ghostty]
+input_path = '~/.config/matugen/templates/Matugen'
+output_path = '~/.config/ghostty/themes/Matugen'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+# post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3"'
+
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship-colors.toml'
+output_path = '~/.config/starship.toml'
+
+[templates.discord]
+input_path = '~/.config/matugen/templates/Material-Discord.theme.css'
+output_path = '~/.config/BetterDiscord/themes/Material-Discord.theme.css'
+
+[templates.rmpc]
+input_path = '~/.config/matugen/templates/rmpc.ron'
+output_path = '~/.config/rmpc/themes/custom.ron'
+
+[templates.fish]
+input_path = '~/.config/matugen/templates/matugen.theme'
+output_path = '~/.config/fish/themes/Matugen.theme'
+post_hook = 'yes|fish_config theme save Matugen'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/config'
+output_path = '~/.config/cava/config'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.mpv]
+input_path = '~/.config/matugen/templates/mpv.conf'
+output_path = '~/.config/mpv/mpv.conf'
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed.json'
+output_path = '~/.config/zed/themes/material-you.json'
+
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi.toml'
+output_path = '~/.config/yazi/theme.toml'
+
+#[templates.ags]
+#input_path = '~/.config/matugen/templates/ags.scss'
+#output_path = '~/.config/ags/style/colors.scss'
+
+#[templates.ags1]
+#input_path = '~/.config/matugen/templates/agsv1.css'
+#output_path = '~/.config/agsnome/style/colors.css'
+
+[templates.zen1]
+input_path = '~/.config/matugen/templates/userChrome.css'
+output_path = '~/.zen/qtmiz5dl.Default (beta)/chrome/userChrome.css'
+
+[templates.zen2]
+input_path = '~/.config/matugen/templates/userContent.css'
+output_path = '~/.zen/qtmiz5dl.Default (beta)/chrome/userContent.css'
+
+[templates.zen3]
+input_path = '~/.config/matugen/templates/zen-logo.svg'
+output_path = '~/.zen/qtmiz5dl.Default (beta)/chrome/zen-logo.svg'
+
+[templates.clipse]
+input_path = '~/.config/matugen/templates/custom_theme.json'
+output_path = '~/.config/clipse/custom_theme.json'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+
+[templates.musicfox]
+input_path = '~/.config/matugen/templates/musicfox'
+output_path = '~/.config/matugen/scripts/musicfox'
+post_hook = 'sh ~/.config/matugen/scripts/musicfox'
+
+[config.custom_colors]
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+orange = "#fab387"
+purple = "#cba6f7"

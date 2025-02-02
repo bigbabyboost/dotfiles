@@ -1,0 +1,128 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    album_art_position: Right,
+    album_art_width_percent: 40,
+    default_album_art_path: None,
+    draw_borders: false,
+    show_song_table_header: false,
+    symbols: (song: "🎵", dir: "📁", marker: "\u{e0b0}"),
+    progress_bar: (
+        symbols: ["▃", "▃", "."],
+        track_style: (bg: None),
+        elapsed_style: (fg: "{{colors.primary.default.hex}}", bg: None),
+        thumb_style: (fg: "{{colors.primary.default.hex}}", bg: None),
+    ),
+    scrollbar: (
+        symbols: ["│", "█", "▲", "▼"],
+        track_style: (),
+        ends_style: (),
+        thumb_style: (fg: "{{colors.on_surface_variant.default.hex}}"),
+    ),
+    browser_column_widths: [20, 38, 42],
+    text_color: "{{colors.primary.default.hex}}",
+    background_color: None,
+    header_background_color: None,
+    modal_background_color: "{{colors.on_primary.default.hex}}",
+    tab_bar: (
+        enabled: false,
+        active_style: (fg: "black", bg: "{{colors.on_surface.default.hex}}", modifiers: "Bold"),
+        inactive_style: (),
+    ),
+    borders_style: (fg: "#6e738d"),
+    highlighted_item_style: (fg: "{{colors.tertiary.default.hex}}", modifiers: "Bold"),
+    current_item_style: (fg: "{{colors.primary.default.hex}}", bg: "{{colors.on_primary.default.hex}}", modifiers: "Bold"),
+    highlight_border_style: (fg: "{{colors.on_primary.default.hex}}"),
+    song_table_format: [
+        (
+            prop: (kind: Property(Artist), style: (fg: "{{colors.primary.default.hex}}"), default: (kind: Text("Unknown"))),
+            width_percent: 49,
+            alignment: Right,
+        ),
+        (
+            prop: (kind: Text("-"), style: (fg: "{{colors.inverse_primary.default.hex}}"), default: (kind: Text("Unknown"))),
+            width_percent: 2,
+            alignment: Center,
+        ),
+        (
+            prop: (kind: Property(Title), style: (fg: "{{colors.primary.default.hex}}"), default: (kind: Text("Unknown"))),
+            width_percent: 49,
+        ),
+    ],
+    header: (
+        rows: [
+            (
+                left: [
+                    (kind: Text("["), style: (fg: "{{colors.primary_fixed_dim.default.hex}}", modifiers: "Bold")),
+                    (kind: Property(Status(State)), style: (fg: "{{colors.primary_fixed_dim.default.hex}}", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "{{colors.primary_fixed_dim.default.hex}}", modifiers: "Bold"))
+                ],
+                center: [
+                    (kind: Property(Song(Title)), style: (fg: "{{colors.primary_fixed_dim.default.hex}}", modifiers: "Bold"),
+                        default: (kind: Text("No Song"), style: (fg: "{{colors.primary_fixed_dim.default.hex}}", modifiers: "Bold"))
+                    ),
+                ],
+                right: [
+                    (kind: Text("Vol: "), style: (fg: "{{colors.primary_fixed_dim.default.hex}}", modifiers: "Bold")),
+                    (kind: Property(Status(Volume)), style: (fg: "{{colors.primary_fixed_dim.default.hex}}", modifiers: "Bold")),
+                    (kind: Text("% "), style: (fg: "{{colors.primary_fixed_dim.default.hex}}", modifiers: "Bold"))
+                ]
+            ),
+            (
+            left: [
+
+                    (kind: Property(Status(Elapsed))),
+
+                    (kind: Text(" / ")),
+
+                    (kind: Property(Status(Duration))),
+
+                    (kind: Text(" (")),
+
+                    (kind: Property(Status(Bitrate))),
+
+                    (kind: Text(" kbps)"))
+
+                ],
+
+                center: [
+
+                    (kind: Property(Song(Artist)), style: (fg: "{{colors.primary.default.hex}}", modifiers: "Bold"),
+
+                        default: (kind: Text("No song"), style: (fg: "{{colors.primary.default.hex}}", modifiers: "Bold"))
+
+                    ),
+
+                    (kind: Text(" - ")),
+
+                    (kind: Property(Song(Album)),
+
+                        default: (kind: Text("No song"))
+
+                    )
+
+                ],
+
+                right: [
+
+                    (
+
+                        kind: Property(Widget(States(
+
+                            active_style: (fg: "{{colors.on_surface.default.hex}}", modifiers: "Bold"),
+
+
+                            separator_style: (fg: "{{colors.on_surface.default.hex}}")))
+
+                        ),
+
+                        style: (fg: "{{colors.secondary.default.hex}}")
+
+                    ),
+
+                ]
+            )
+        ],
+    ),
+)
