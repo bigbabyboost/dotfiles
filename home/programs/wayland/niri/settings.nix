@@ -72,8 +72,8 @@ in {
         border = {
           enable = true;
           width = 3;
-          active.color = "#16aff1";
-          inactive.color = "#245b89";
+          active.color = "#f5c2e7";
+          inactive.color = "#313244";
         };
 
         preset-column-widths = [

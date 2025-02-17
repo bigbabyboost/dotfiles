@@ -24,8 +24,10 @@
     gnutls
     nautilus
     xfce.thunar
+
     vlc
     ani-cli
+    youtube-music
     
     keepassxc
 

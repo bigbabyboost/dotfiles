@@ -55,6 +55,7 @@ in {
 #          "group/backlight-modules"
           "group/battery-modules"
           "tray"
+          "custom/notifications"
           "group/powermenu"
         ];
 
@@ -272,6 +273,26 @@ in {
           on-click = "${pkgs.systemd}/bin/systemctl reboot";
           tooltip = false;
         };
+        "custom/notifications" = {
+          tooltip = false;
+          format = "{icon}";
+          format-icons = {
+            notification = "󱅫 ";
+            none = "󰂚 ";
+            dnd-notification = "󰂛 ";
+            dnd-none = "󰂛 ";
+            inhibited-notification = "󰂚 ";
+            inhibited-none = "󰂚 ";
+            dnd-inhibited-notification = "󰂛";
+            dnd-inhibited-none = "󰂛 ";
+          };
+          return-type = "json";
+          exec-if = "${pkgs.swaynotificationcenter}/bin/swaync-client";
+          exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+          on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+          on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+          escape = true;
+        };
       }
     ];
 
@@ -413,6 +434,16 @@ in {
         padding: 0.25rem;
         min-width: 1.5rem;
         transition: 300ms linear;
+      }
+
+      #custom-notifications {
+        background: ${color9};
+        color: ${color2};
+        border-radius: 8px;
+        font-size: 14pt;
+        padding-left: 0.76rem;
+        min-width: 1.5rem;
+        margin: 0.5rem 0.25rem;
       }
 
       /* Workspaces */
