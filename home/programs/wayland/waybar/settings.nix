@@ -418,7 +418,7 @@ in {
         background: ${colora};
         color: ${color2};
         border-radius: 8px;
-        font-size: 13pt;
+        font-size: 9pt;
         padding: 0.25rem;
         min-width: 1.5rem;
       }
