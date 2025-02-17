@@ -15,9 +15,6 @@ in {
   # screen idle
   services.hypridle = {
     enable = true;
-
-    package = inputs.hypridle.packages.${pkgs.system}.hypridle;
-
     settings = {
       general.lock_cmd = lib.getExe config.programs.hyprlock.package;
 
@@ -32,8 +29,8 @@ in {
         }
         {
           inherit timeout;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
+          on-timeout = "niri msg action power-off-monitors";
+          on-resume = "niri msg action power-on-monitors";
         }
         {
           timeout = timeout + 10;

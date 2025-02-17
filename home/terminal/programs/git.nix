@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
   cfg = config.programs.git;
@@ -91,14 +92,10 @@ in {
     signing = {
       key = "${config.home.homeDirectory}/.ssh/id_ed25519";
       signByDefault = true;
+      format = "ssh";
     };
 
     extraConfig = {
-      gpg = {
-        format = "ssh";
-        ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
-      };
-
       pull.rebase = true;
       credential.helper = "store";
     };

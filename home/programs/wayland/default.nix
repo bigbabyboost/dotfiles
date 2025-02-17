@@ -8,8 +8,10 @@
   imports = [
     ./hyprland
     ./hyprlock.nix
-    ./wlogout.nix
+    #./wlogout.nix
     ./swayosd.nix
+    ./niri
+    ./waybar
   ];
 
   home.packages = with pkgs; [

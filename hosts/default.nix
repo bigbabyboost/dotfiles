@@ -45,7 +45,7 @@
           inputs.disko.nixosModules.default
           inputs.catppuccin.nixosModules.catppuccin
           #          inputs.stylix.nixosModules.stylix
-          #          inputs.nixpkgs-wayland.overlay
+          # inputs.nixpkgs-wayland.overlay
         ];
     };
   };

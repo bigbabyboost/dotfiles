@@ -15,7 +15,7 @@ in {
   ];
 
   home.packages = [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    pkgs.grimblast
   ];
 
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
@@ -24,12 +24,10 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
 
-    package = inputs.hyprland.packages.${pkgs.system}.default;
-
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+    #plugins = with; [
       # hyprbars
       # hyprexpo
-    ];
+    #];
 
     systemd = {
       enable = false;

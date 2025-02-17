@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   fonts = {
     packages = with pkgs; [
       # icon fonts
@@ -11,11 +11,15 @@
       noto-fonts-emoji
       roboto
       (google-fonts.override {fonts = ["Inter"];})
+      inputs.apple-fonts.packages.${pkgs.system}.sf-pro
+      inputs.apple-fonts.packages.${pkgs.system}.ny
+      adwaita-fonts
 
       # monospace fonts
       jetbrains-mono
 
       # nerdfonts
+      maple-mono-NF
       nerd-fonts.commit-mono
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
@@ -31,9 +35,9 @@
       addAll = builtins.mapAttrs (_: v: v ++ ["Noto Color Emoji"]);
     in
       addAll {
-        serif = ["Libertinus Serif"];
-        sansSerif = ["Inter"];
-        monospace = ["JetBrains Mono Nerd Font"];
+        serif = ["New York"];
+        sansSerif = ["Adwaita Sans"];
+        monospace = ["Adwaita Mono"];
         emoji = [];
       };
   };

@@ -12,7 +12,7 @@
     sparseCheckout = ["src"];
   };
 
-  qtctConf = {
+  kvantum = {
     Appearance = {
       custom_palette = false;
       icon_theme = config.gtk.iconTheme.name;
@@ -25,7 +25,8 @@
 in {
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
   };
 
   home.packages = [
@@ -52,7 +53,7 @@ in {
       default = ''"${defaultFont},-1,5,50,0,0,0,0,0"'';
     in
       lib.generators.toINI {} (
-        qtctConf
+        kvantum
         // {
           Fonts = {
             fixed = default;
@@ -65,7 +66,7 @@ in {
       default = ''"${defaultFont},-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
     in
       lib.generators.toINI {} (
-        qtctConf
+        kvantum
         // {
           Fonts = {
             fixed = default;

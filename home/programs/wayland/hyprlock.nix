@@ -6,9 +6,6 @@
 }: {
   programs.hyprlock = {
     enable = true;
-
-    #    package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
-
     settings = {
       general = {
         disable_loading_bar = true;
@@ -76,7 +73,7 @@
           font_size = 20;
           color = "rgb(b6c4ff)";
 
-          position = "0%, 40%";
+          position = "0%, 15%";
 
           valign = "center";
           halign = "center";

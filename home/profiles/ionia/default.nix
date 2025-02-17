@@ -1,7 +1,7 @@
 {
   imports = [
     # editors
-    ../../editors/helix
+    #../../editors/helix
     ../../editors/zed
 
     # programs
@@ -21,8 +21,8 @@
     ../../services/system/polkit-agent.nix
     ../../services/system/power-monitor.nix
     ../../services/system/syncthing.nix
-    ../../services/system/tailray.nix
-    ../../services/system/theme.nix
+    #../../services/system/tailray.nix
+    #../../services/system/theme.nix
     ../../services/system/udiskie.nix
 
     # wayland-specific
@@ -32,7 +32,7 @@
 
     # terminal emulators
     ../../terminal/emulators/kitty.nix
-    ../../terminal/emulators/foot.nix
+    ../../terminal/emulators/ghostty.nix
   ];
 
   wayland.windowManager.hyprland.settings = let

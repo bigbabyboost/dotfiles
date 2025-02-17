@@ -11,11 +11,13 @@
     ./disk-configuration.nix
   ];
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos-lto;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 
   boot = {
-    kernelModules = ["kvm-intel"];
+    kernelModules = ["kvm-intel" "i915"];
     kernelParams = [
+      "i915.enble_fbc=1"
+      "i915.enble_guc=1"
     ];
   };
 
@@ -24,8 +26,9 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    EDITOR = "hx";
-    TERM = "foot";
+    EDITOR = "micro";
+    TERM = "ghostty";
+    TERMINAL = "ghostty";
   };
 
   networking.hostName = "ionia";

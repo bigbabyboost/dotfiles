@@ -18,16 +18,20 @@
   home.packages = with pkgs; [
     telegram-desktop
     micro
-    fastfetch
     intel-gpu-tools
     openssl
     glib-networking
     gnutls
     nautilus
     xfce.thunar
+    vlc
+    ani-cli
+    
+    keepassxc
 
     gnome-calculator
     gnome-control-center
+    cliphist
 
     overskride
     resources

@@ -12,7 +12,24 @@
   ];
 
   # we need git for flakes
-  environment.systemPackages = [pkgs.git];
+  environment.systemPackages = [
+    pkgs.git
+    pkgs.ffmpeg-full
+    pkgs.libaom
+    pkgs.libavif
+    pkgs.openh264
+    pkgs.gst_all_1.gst-vaapi
+    pkgs.gst_all_1.gst-libav
+    pkgs.gst_all_1.gst-plugins-bad
+    pkgs.gst_all_1.gst-plugins-good
+    pkgs.gst_all_1.gst-plugins-ugly
+    pkgs.x264
+    pkgs.x265
+    pkgs.libvpx
+    pkgs.mesa
+    pkgs.vulkan-tools
+    pkgs.vulkan-loader
+  ];
 
   nix = let
     flakeInputs = lib.filterAttrs (_: v: lib.isType "flake" v) inputs;

@@ -18,7 +18,8 @@ in {
 
     WINEPREFIX = "${data}/wine";
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
-    TERM = "foot";
+    TERM = "ghostty";
+    TERMINAL = "ghostty";
 
     EDITOR = "micro";
     DIRENV_LOG_FORMAT = "";
