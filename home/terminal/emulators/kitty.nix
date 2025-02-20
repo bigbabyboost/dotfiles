@@ -1,0 +1,23 @@
+{
+  programs.kitty = {
+    enable = true;
+    font = {
+      size = 11;
+      name = "Adwaita Mono";
+    };
+
+    settings = {
+      scrollback_lines = 10000;
+      placement_strategy = "center";
+
+      allow_remote_control = "yes";
+      enable_audio_bell = "no";
+      visual_bell_duration = "0.1";
+
+      copy_on_select = "clipboard";
+
+      selection_foreground = "none";
+      selection_background = "none";
+    };
+  };
+}
