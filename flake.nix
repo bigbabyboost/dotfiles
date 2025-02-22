@@ -70,8 +70,6 @@
       url = "github:Lyndeno/apple-fonts.nix";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
-
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     disko = {

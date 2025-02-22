@@ -24,12 +24,14 @@
     "Print".action = screenshot-screen;
     "Mod+Print".action = screenshot-window;
     "Mod+Shift+S".action = screenshot;
-    "Mod+D".action = spawn "${pkgs.anyrun}/bin/anyrun";
-    "Mod+Return".action = spawn "${pkgs.ghostty}/bin/ghostty";
-    "Ctrl+Alt+L".action = spawn "sh -c pgrep hyprlock || hyprlock";
+    "Mod+D".action = spawn "uwsm" "app" "--" "${pkgs.anyrun}/bin/anyrun";
+    "Mod+Return".action = spawn "uwsm" "app" "--" "${pkgs.ghostty}/bin/ghostty";
+    "Ctrl+Alt+L".action = spawn "uwsm" "app" "--" "sh -c pgrep hyprlock || hyprlock";
 
-    "Mod+U".action = spawn "env XDG_CURRENT_DESKTOP=gnome gnome-control-center";
-
+    "Mod+I".action = spawn "XDG_CURRENT_DESKTOP=gnome" "uwsm" "app" "--" "gnome-control-center";
+	"Mod+E".action = spawn "uwsm" "app" "--" "nautilus";
+	"Mod+B".action = spawn "uwsm" "app" "--" "google-chrome-stable";
+	
     "Mod+Q".action = close-window;
     "Mod+R".action = switch-preset-column-width;
     "Mod+Shift+R".action = switch-preset-window-height;

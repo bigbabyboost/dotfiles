@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
   pointer = config.home.pointerCursor;
@@ -24,13 +25,15 @@ in {
         TERMINAL = "ghostty";
       };
       spawn-at-startup = [
+		(makeCommand "uwsm finalize")
         (makeCommand "hyprlock")
         (makeCommand "swww-daemon")
-        (makeCommand "waybar")
-        (makeCommand "keepassxc")
-        (makeCommand "telegram-desktop")
-        (makeCommand "wl-paste --type image --watch cliphist store")
-        (makeCommand "wl-paste --type text --watch cliphist store")
+        (makeCommand "uwsm app -- waybar")
+        (makeCommand "uwsm app -- keepassxc")
+        (makeCommand "uwsm app -- xwayland-satellite")
+        (makeCommand "uwsm app -- telegram-desktop")
+        (makeCommand "uwsm app -- wl-paste --type image --watch cliphist store")
+        (makeCommand "uwsm app -- wl-paste --type text --watch cliphist store")
       ];
       input = {
         keyboard.xkb.layout = "us";
@@ -71,9 +74,9 @@ in {
         focus-ring.enable = false;
         border = {
           enable = true;
-          width = 3;
-          active.color = "#f5c2e7";
-          inactive.color = "#313244";
+          width = 2;
+          active.color = "#${config.lib.stylix.colors.base05}";
+          inactive.color = "#${config.lib.stylix.colors.base03}";
         };
 
         preset-column-widths = [

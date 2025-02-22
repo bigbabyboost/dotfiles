@@ -1,6 +1,12 @@
 {lib, ...}:
 with lib; {
   options.theme = {
+
+    name = lib.mkOption {
+      type = lib.types.str;
+      default = dark;
+    };
+    
     wallpaperDark = mkOption {
       type = types.path;
       description = ''
@@ -8,6 +14,7 @@ with lib; {
       '';
       default = "";
     };
+    
     wallpaperLight = mkOption {
       type = types.path;
       description = ''

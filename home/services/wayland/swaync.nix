@@ -7,10 +7,10 @@
   services.swaync = {
     enable = false;
     package = pkgs.swaynotificationcenter;
-    style = pkgs.fetchurl {
-      url = "https://github.com/catppuccin/swaync/releases/download/v0.2.3/mocha.css";
-      sha256 = "sha256-Hie/vDt15nGCy4XWERGy1tUIecROw17GOoasT97kIfc=";
-    };
+    # style = pkgs.fetchurl {
+    #  url = "https://github.com/catppuccin/swaync/releases/download/v0.2.3/mocha.css";
+    #  sha256 = "sha256-Hie/vDt15nGCy4XWERGy1tUIecROw17GOoasT97kIfc=";
+    # };
 
     settings = {
       positionX = "right";

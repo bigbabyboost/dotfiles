@@ -11,6 +11,9 @@
       wl-ocr = pkgs.callPackage ./wl-ocr {};
 
       bun-baseline = pkgs.callPackage ./bun {};
+
+      gruvbox-plus = pkgs.callPackage ./gruvbox {};
+
     };
   };
 }

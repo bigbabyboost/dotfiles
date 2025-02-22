@@ -9,6 +9,7 @@
     packages = with pkgs; [
       seatd
       jaq
+      xwayland-satellite
     ];
   };
 }

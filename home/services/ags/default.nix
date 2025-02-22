@@ -4,7 +4,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.programs.ags;
+in {
   imports = [inputs.ags.homeManagerModules.default];
 
   home.packages = with pkgs; [
@@ -60,7 +62,7 @@
     $base0F: #${base0F};
   '';
   
-  systemd.user.services.ags = {
+  systemd.user.services.ags = lib.mkIf config.programs.ags.enable {
     Unit = {
       Description = "Aylur's Gtk Shell";
       PartOf = [
@@ -76,6 +78,7 @@
     };
     Install.WantedBy = ["graphical-session.target"];
   };
+
   systemd.user.services.gsd-rfkill = {
     Unit = {
       Description = "Gnome RFKill support service";

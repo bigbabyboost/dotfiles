@@ -16,11 +16,11 @@
       scroll-step = "100";
       zoom-min = "10";
     };
-    extraConfig = "include zathura-gruvbox-dark";
+    extraConfig = "include gruvbox-dark";
   };
 
   xdg.configFile = {
-    "zathura/gruvbox-dark-hard".source = pkgs.fetchurl {
+    "zathura/gruvbox-dark".source = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/eastack/zathura-gruvbox/master/zathura-gruvbox-dark";
       hash = "sha256-CjfabF+RJgKvyVYJXteYcAftW9Z5EwEvzI8IevubiJo=";
     };

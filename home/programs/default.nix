@@ -8,7 +8,6 @@
     ./browsers/chromium.nix
     ./browsers/firefox.nix
     ./browsers/zen.nix
-    # ./catppuccin.nix
     ./media
     ./gtk.nix
     ./office

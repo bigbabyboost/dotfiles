@@ -1,34 +1,12 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}: let
-  custom = {
-    font = "Adwaita Sans";
-    font_size = "9pt";
-    font_weight = "bold";
-    opacity = "1";
-    indicator_height = "2px";
-    color0 = "#1e1e2e";      # base
-    color1 = "#181825";      # mantle
-    color2 = "#313244";      # surf_0
-    color3 = "#45475a";      # surf_1
-    color4 = "#585b70";      # surf_2
-    color5 = "#cdd6f4";      # text
-    color6 = "#f5e0dc";      # rosewater
-    color7 = "#b4befe";      # lavender
-    color8 = "#f5c2e7";      # pink
-    color9 = "#fab387";      # peach
-    colora = "#f9e2af";      # yellow
-    colorb = "#a6e3a1";      # green
-    colorc = "#94e2d5";      # teal
-    colord = "#89b4fa";      # blue
-    colore = "#cba6f7";      # mauve
-    colorf = "#f38ba8";      # red
-  };
-in {
+}: 
+{
   programs.waybar = {
-    settings = with custom; [
+    settings = [
       {
         layer = "top";
         position = "top";
@@ -50,17 +28,17 @@ in {
           "clock"
         ];
         modules-right = [
+          "tray"
           "group/network-modules"
           "group/wireplumber-modules"
 #          "group/backlight-modules"
           "group/battery-modules"
-          "tray"
           "custom/notifications"
           "group/powermenu"
         ];
 
         "image" = {
-          path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
           size = 24;
           tooltip = false;
         };
@@ -221,10 +199,10 @@ in {
           };
           calendar = {
             format = {
-              days = "<span color='${color8}'><b>{}</b></span>";
-              months = "<span color='${color7}'><b>{}</b></span>";
-              today = "<span color='${color7}'><b><u>{}</u></b></span>";
-              weekdays = "<span color='${colord}'><b>{}</b></span>";
+              days = "<span color='#${config.lib.stylix.colors.base0A}'><b>{}</b></span>";
+              months = "<span color='#${config.lib.stylix.colors.base0D}'><b>{}</b></span>";
+              today = "<span color='#${config.lib.stylix.colors.base0D}'><b><u>{}</u></b></span>";
+              weekdays = "<span color='#${config.lib.stylix.colors.base05}'><b>{}</b></span>";
             };
             mode = "month";
             on-scroll = 1;
@@ -296,23 +274,23 @@ in {
       }
     ];
 
-    style = with custom; ''
+    style = ''
       /* Global */
       * {
         all: unset;
-        font-family: ${font};
+        font-family: "Adwaita Sans";
         font-size: 9pt;
         font-weight: bold;
       }
 
       /* Menu */
       menu {
-        background: ${color1};
+        background: #${config.lib.stylix.colors.base00};
         border-radius: 12px;
       }
 
       menu separator {
-        background: ${colore};
+        background: #${config.lib.stylix.colors.base0E};
       }
 
       menu menuitem {
@@ -322,7 +300,7 @@ in {
       }
 
       menu menuitem:hover {
-        background: lighter(${color2});
+        background: #${config.lib.stylix.colors.base03};
       }
 
       menu menuitem:first-child {
@@ -339,7 +317,7 @@ in {
 
       /* Tooltip */
       tooltip {
-        background: ${color1};
+        background: #${config.lib.stylix.colors.base00};
         border-radius: 12px;
       }
 
@@ -349,7 +327,7 @@ in {
 
       /* Waybar */
       window#waybar {
-        background: ${color1};
+        background: transparent;
       }
 
       .modules-left {
@@ -361,6 +339,12 @@ in {
       }
 
       /* Modules */
+
+      #window {
+        background: #d5c4a1;
+        margin: 0.5rem 0.25rem;
+        border-radius: 8px;
+      }      
       #workspaces,
       #workspaces button,
       #idle_inhibitor,
@@ -375,7 +359,7 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: ${color2};
+        background: #${config.lib.stylix.colors.base05};
         border-radius: 8px;
         margin: 0.5rem 0.25rem;
         transition: 300ms linear;
@@ -390,13 +374,14 @@ in {
       #tray,
       #clock {
         padding: 0.25rem 0.75rem;
+        color: #${config.lib.stylix.colors.base00};        
       }
 
       #idle_inhibitor,
       
       #network.icon {
-        background: ${colorc};
-        color: ${color2};
+        background: #${config.lib.stylix.colors.base08};
+        color: #${config.lib.stylix.colors.base00};
         border-radius: 8px;
         font-size: 13pt;
         padding: 0.25rem;
@@ -404,8 +389,8 @@ in {
       }
 
       #wireplumber.icon {
-        background: ${color8};
-        color: ${color2};
+        background: #${config.lib.stylix.colors.base0F};
+        color: #${config.lib.stylix.colors.base00};
         border-radius: 8px;
         font-size: 13pt;
         padding: 0.25rem;
@@ -415,8 +400,8 @@ in {
       #backlight.icon,
       
       #battery.icon {
-        background: ${colora};
-        color: ${color2};
+        background: #${config.lib.stylix.colors.base0A};
+        color: #${config.lib.stylix.colors.base00};
         border-radius: 8px;
         font-size: 9pt;
         padding: 0.25rem;
@@ -427,8 +412,8 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: ${color7};
-        color: ${color2};
+        background: #${config.lib.stylix.colors.base0C};
+        color: #${config.lib.stylix.colors.base00};
         border-radius: 8px;
         font-size: 13pt;
         padding: 0.25rem;
@@ -437,8 +422,8 @@ in {
       }
 
       #custom-notifications {
-        background: ${color9};
-        color: ${color2};
+        background: #${config.lib.stylix.colors.base0D};
+        color: #${config.lib.stylix.colors.base00};
         border-radius: 8px;
         font-size: 14pt;
         padding-left: 0.76rem;
@@ -454,59 +439,70 @@ in {
       }
 
       #workspaces button label {
-        color: ${color5};
+        color: #${config.lib.stylix.colors.base00};
       }
 
       #workspaces button.empty label {
-        color: ${color4};
+        color: #${config.lib.stylix.colors.base00};
       }
 
       #workspaces button.urgent label,
       #workspaces button.active label {
-        color: ${color2};
+        color: #${config.lib.stylix.colors.base05};
       }
 
       #workspaces button.urgent {
-        background: ${color9};
+        background: #${config.lib.stylix.colors.base08};
       }
 
       #workspaces button.active {
-        background: ${colore};
+        background: #${config.lib.stylix.colors.base01};
       }
 
       /* Idle Inhibitor */
       #idle_inhibitor {
-        background: ${color2};
-        color: ${colore};
+        background: #${config.lib.stylix.colors.base05};
+        color: #${config.lib.stylix.colors.base00};
       }
 
       #idle_inhibitor.deactivated {
-        color: ${color4};
+        color: #${config.lib.stylix.colors.base00};
+        background: #${config.lib.stylix.colors.base03};        
       }
 
       /* Systray */
+
+      #tray {
+        background: #${config.lib.stylix.colors.base00};        
+      }
+            
       #tray > .passive {
         -gtk-icon-effect: dim;
       }
 
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
-        background: ${colora};
+        background: #${config.lib.stylix.colors.base03};
       }
 
       /* Hover effects */
-      #workspaces button:hover,
+      #workspaces button:hover {
+        background: #665c54; /*base3*/
+      }
       #idle_inhibitor:hover,
       #idle_inhibitor.deactivated:hover,
       #clock:hover {
-        background: lighter(${color2});
+        background: #${config.lib.stylix.colors.base07};
       }
 
       #workspaces button.urgent:hover {
-        background: lighter(${colorf});
+        background: #${config.lib.stylix.colors.base04};
       }
 
-      #workspaces button.active:hover,
+      #workspaces button.active:hover {
+        background: #665c54; /*base3*/
+      }
+      
       #network.icon:hover,
       #wireplumber.icon:hover,
       #custom-exit:hover,
@@ -514,11 +510,14 @@ in {
       #custom-suspend:hover,
       #custom-reboot:hover,
       #custom-power:hover {
-        background: lighter(${color6});
+        background: #${config.lib.stylix.colors.base07};
       }
 
       #workspaces button.urgent:hover label,
-      #workspaces button.active:hover label,
+      #workspaces button.active:hover label {
+        color: #${config.lib.stylix.colors.base05};
+      }
+      
       #network.icon:hover label,
       #wireplumber.icon:hover label,
       #custom-exit:hover label,
@@ -526,23 +525,23 @@ in {
       #custom-suspend:hover label,
       #custom-reboot:hover label,
       #custom-power:hover label {
-        color: lighter(${color2});
+        color: #${config.lib.stylix.colors.base00};
       }
 
       #workspaces button:hover label {
-        color: lighter(${color5});
+        color: #${config.lib.stylix.colors.base05};
       }
 
       #workspaces button.empty:hover label {
-        color: lighter(${color4});
+        color: #${config.lib.stylix.colors.base05};
       }
 
       #idle_inhibitor:hover {
-        color: lighter(${colorc});
+        color: #${config.lib.stylix.colors.base03};
       }
 
       #idle_inhibitor.deactivated:hover {
-        color: lighter(${color4});
+        color: #${config.lib.stylix.colors.base02};
       }
     '';
   };
