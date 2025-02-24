@@ -56,12 +56,10 @@
 
     # rest of inputs, alphabetical order
 
-    # ags.url = "github:Aylur/ags";
-
     ags = {
       url = "github:aylur/ags";
     };
-    
+
     # anyrun.url = "github:fufexan/anyrun/launch-prefix";
 
     anyrun.url = "github:anyrun-org/anyrun";
@@ -83,7 +81,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,11 +100,6 @@
       };
     };
 
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs = {
@@ -116,11 +109,6 @@
     };
 
     stylix.url = "github:danth/stylix";
-
-    tailray = {
-      url = "github:NotAShelf/tailray";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";

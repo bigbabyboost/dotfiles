@@ -59,6 +59,7 @@
           monitor = "";
           text = "$TIME";
           font_size = 150;
+          font_family = "Scientifica";
           color = "rgb(${config.lib.stylix.colors.base05})";
 
           position = "0%, 30%";

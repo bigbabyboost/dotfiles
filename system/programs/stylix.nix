@@ -1,4 +1,10 @@
-{ pkgs, config, inputs, lib, ... }: {
+{
+  pkgs,
+  config,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [inputs.stylix.nixosModules.stylix];
   # Stylix
   stylix = {
@@ -27,7 +33,7 @@
     homeManagerIntegration.autoImport = false;
     homeManagerIntegration.followSystem = true;
     fonts = {
-      sizes.applications = lib.mkDefault 11;
+      sizes.applications = lib.mkForce 9;
       serif = {
         package = inputs.apple-fonts.packages.${pkgs.system}.ny;
         name = lib.mkDefault "New York";
@@ -37,8 +43,8 @@
         name = lib.mkDefault "Adwaita Sans";
       };
       monospace = {
-        package = lib.mkDefault pkgs.adwaita-fonts;
-        name = lib.mkDefault "Adwaita Mono";
+        package = lib.mkDefault pkgs.nerd-fonts.fantasque-sans-mono;
+        name = lib.mkDefault "FantasqueSansM Nerd Font";
       };
       emoji = {
         package = lib.mkDefault pkgs.noto-fonts-emoji;

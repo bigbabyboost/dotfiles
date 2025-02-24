@@ -1,4 +1,9 @@
-{self, ...}: {
+{
+  self,
+  inputs,
+  lib,
+  ...
+}: {
   nixpkgs = {
     config.allowUnfree = true;
     config.permittedInsecurePackages = [
@@ -13,6 +18,7 @@
             colors = import "${self}/lib/colors" prev.lib;
           };
       })
+      inputs.niri.overlays.niri
     ];
   };
 }

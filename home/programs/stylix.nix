@@ -1,4 +1,10 @@
-{ pkgs, config, inputs, lib, ... }: {
+{
+  pkgs,
+  config,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [inputs.stylix.homeManagerModules.stylix];
   # Stylix
   stylix = {
@@ -23,7 +29,7 @@
       base0E = "e089a1"; # purple
       base0F = "f28534"; # brown
     };
-    polarity = "dark";    
+    polarity = "dark";
     iconTheme = {
       enable = true;
       package = inputs.self.packages.${pkgs.system}.gruvbox-plus;
@@ -31,7 +37,7 @@
       light = "Gruvbox-Plus-Light";
     };
     fonts = {
-      sizes.applications = lib.mkDefault 11;
+      sizes.applications = lib.mkDefault 9;
       serif = {
         package = inputs.apple-fonts.packages.${pkgs.system}.ny;
         name = lib.mkDefault "New York";
@@ -41,8 +47,8 @@
         name = lib.mkDefault "Adwaita Sans";
       };
       monospace = {
-        package = lib.mkDefault pkgs.adwaita-fonts;
-        name = lib.mkDefault "Adwaita Mono";
+        package = lib.mkDefault pkgs.nerd-fonts.fantasque-sans-mono;
+        name = lib.mkDefault "FantasqueSansM Nerd Font";
       };
       emoji = {
         package = lib.mkDefault pkgs.noto-fonts-emoji;
@@ -55,11 +61,12 @@
       size = lib.mkDefault 18;
     };
     targets = {
-      gtk.enable =  true;
+      gtk.enable = true;
       gtk.flatpakSupport.enable = true;
       bat.enable = true;
       btop.enable = true;
       cava.enable = true;
+      foot.enable = true;
       fzf.enable = true;
       ghostty.enable = true;
       hyprland.enable = false;

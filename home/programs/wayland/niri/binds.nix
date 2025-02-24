@@ -25,13 +25,14 @@
     "Mod+Print".action = screenshot-window;
     "Mod+Shift+S".action = screenshot;
     "Mod+D".action = spawn "uwsm" "app" "--" "${pkgs.anyrun}/bin/anyrun";
-    "Mod+Return".action = spawn "uwsm" "app" "--" "${pkgs.ghostty}/bin/ghostty";
+    "Mod+Return".action = spawn "uwsm" "app" "--" "${pkgs.wezterm}/bin/wezterm";
+    "Mod+Shift+Return".action = spawn "uwsm" "app" "--" "${pkgs.ghostty}/bin/ghostty";
     "Ctrl+Alt+L".action = spawn "uwsm" "app" "--" "sh -c pgrep hyprlock || hyprlock";
 
     "Mod+I".action = spawn "XDG_CURRENT_DESKTOP=gnome" "uwsm" "app" "--" "gnome-control-center";
-	"Mod+E".action = spawn "uwsm" "app" "--" "nautilus";
-	"Mod+B".action = spawn "uwsm" "app" "--" "google-chrome-stable";
-	
+    "Mod+E".action = spawn "uwsm" "app" "--" "nautilus";
+    "Mod+B".action = spawn "uwsm" "app" "--" "google-chrome-stable";
+
     "Mod+Q".action = close-window;
     "Mod+R".action = switch-preset-column-width;
     "Mod+Shift+R".action = switch-preset-window-height;

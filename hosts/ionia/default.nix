@@ -31,6 +31,8 @@
     TERMINAL = "ghostty";
   };
 
+  environment.localBinInPath = true;
+
   networking.hostName = "ionia";
 
   security.tpm2.enable = true;

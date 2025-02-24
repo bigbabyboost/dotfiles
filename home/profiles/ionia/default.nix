@@ -35,6 +35,8 @@
     # terminal emulators
     ../../terminal/emulators/kitty.nix
     ../../terminal/emulators/ghostty.nix
+    ../../terminal/emulators/wezterm.nix
+    #../../terminal/emulators/foot.nix
   ];
 
   wayland.windowManager.hyprland.settings = let

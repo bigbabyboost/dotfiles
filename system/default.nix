@@ -17,6 +17,7 @@ let
     ./services/pipewire.nix
     ./services/swayosd.nix
     ./services/warp.nix
+    ./services/virtualisation.nix
     ./specialisations.nix
   ];
 

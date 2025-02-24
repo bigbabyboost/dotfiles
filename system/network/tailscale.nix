@@ -10,7 +10,7 @@
     enable = true;
     openFirewall = true;
     extraSetFlags = [
-      "--operator=$USER"
+      "--operator=xaolan"
     ];
   };
 }

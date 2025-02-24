@@ -1,11 +1,6 @@
 {
   programs.kitty = {
     enable = true;
-    font = {
-      size = 11;
-      name = "Adwaita Mono";
-    };
-
     settings = {
       scrollback_lines = 10000;
       placement_strategy = "center";

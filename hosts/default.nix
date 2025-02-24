@@ -43,8 +43,6 @@
 
           inputs.chaotic.nixosModules.default
           inputs.disko.nixosModules.default
-          inputs.catppuccin.nixosModules.catppuccin
-          # inputs.nixpkgs-wayland.overlay
         ];
     };
   };

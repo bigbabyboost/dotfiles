@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}: 
-{
+}: {
   programs.waybar = {
     settings = [
       {
@@ -31,7 +30,7 @@
           "tray"
           "group/network-modules"
           "group/wireplumber-modules"
-#          "group/backlight-modules"
+          #          "group/backlight-modules"
           "group/battery-modules"
           "custom/notifications"
           "group/powermenu"
@@ -63,7 +62,7 @@
         };
 
         "niri/window" = {
-          format = "󰣆 {title}";
+          format = "󰣆  {title}";
           max-length = 40;
           separate-outputs = true;
           rewrite = {
@@ -187,8 +186,8 @@
         };
 
         tray = {
-          icon-size = 15;
-          spacing = 10;
+          icon-size = 10;
+          spacing = 8;
           show-passive-items = false;
         };
 
@@ -280,7 +279,7 @@
         all: unset;
         font-family: "Adwaita Sans";
         font-size: 9pt;
-        font-weight: bold;
+        font-weight: 600;
       }
 
       /* Menu */
@@ -344,7 +343,7 @@
         background: #d5c4a1;
         margin: 0.5rem 0.25rem;
         border-radius: 8px;
-      }      
+      }
       #workspaces,
       #workspaces button,
       #idle_inhibitor,
@@ -374,17 +373,18 @@
       #tray,
       #clock {
         padding: 0.25rem 0.75rem;
-        color: #${config.lib.stylix.colors.base00};        
+        color: #${config.lib.stylix.colors.base00};
       }
 
       #idle_inhibitor,
-      
+
       #network.icon {
         background: #${config.lib.stylix.colors.base08};
         color: #${config.lib.stylix.colors.base00};
         border-radius: 8px;
-        font-size: 13pt;
+        font-size: 11pt;
         padding: 0.25rem;
+        padding-right: 0.5rem;
         min-width: 1.5rem;
       }
 
@@ -398,7 +398,7 @@
       }
 
       #backlight.icon,
-      
+
       #battery.icon {
         background: #${config.lib.stylix.colors.base0A};
         color: #${config.lib.stylix.colors.base00};
@@ -448,7 +448,7 @@
 
       #workspaces button.urgent label,
       #workspaces button.active label {
-        color: #${config.lib.stylix.colors.base05};
+        color: #${config.lib.stylix.colors.base00};
       }
 
       #workspaces button.urgent {
@@ -456,7 +456,7 @@
       }
 
       #workspaces button.active {
-        background: #${config.lib.stylix.colors.base01};
+        background: #${config.lib.stylix.colors.base0B};
       }
 
       /* Idle Inhibitor */
@@ -467,15 +467,15 @@
 
       #idle_inhibitor.deactivated {
         color: #${config.lib.stylix.colors.base00};
-        background: #${config.lib.stylix.colors.base03};        
+        background: #${config.lib.stylix.colors.base03};
       }
 
       /* Systray */
 
       #tray {
-        background: #${config.lib.stylix.colors.base00};        
+        background: #${config.lib.stylix.colors.base00};
       }
-            
+
       #tray > .passive {
         -gtk-icon-effect: dim;
       }
@@ -502,7 +502,7 @@
       #workspaces button.active:hover {
         background: #665c54; /*base3*/
       }
-      
+
       #network.icon:hover,
       #wireplumber.icon:hover,
       #custom-exit:hover,
@@ -517,7 +517,7 @@
       #workspaces button.active:hover label {
         color: #${config.lib.stylix.colors.base05};
       }
-      
+
       #network.icon:hover label,
       #wireplumber.icon:hover label,
       #custom-exit:hover label,

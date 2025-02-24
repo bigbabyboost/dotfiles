@@ -28,9 +28,9 @@
       timeout-low = 5;
       timeout-critical = 0;
       fit-to-screen = true;
-      control-center-width = 500;
-      control-center-height = 600;
-      notification-window-width = 500;
+      control-center-width = 300;
+      control-center-height = 500;
+      notification-window-width = 300;
       keyboard-shortcuts = true;
       image-visibility = "when-available";
       transition-time = 200;

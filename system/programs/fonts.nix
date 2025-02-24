@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   fonts = {
     packages = with pkgs; [
       # icon fonts
@@ -17,13 +21,24 @@
 
       # monospace fonts
       jetbrains-mono
-      spleen
 
       # nerdfonts
       maple-mono-NF
       nerd-fonts.commit-mono
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
+      nerd-fonts.fantasque-sans-mono
+
+      # bitmap fomts
+      cozette
+      spleen
+      nerd-fonts.gohufont
+      scientifica
+      curie
+
+      # pixels
+      zpix-pixel-font
+      vt323
     ];
 
     # causes more issues than it solves
@@ -38,7 +53,7 @@
       addAll {
         serif = ["New York"];
         sansSerif = ["Adwaita Sans"];
-        monospace = ["Adwaita Mono"];
+        monospace = ["FantasqueSansM Nerd Font"];
         emoji = [];
       };
   };

@@ -11,6 +11,7 @@
 in {
   programs.niri = {
     enable = true;
+    package = pkgs.niri-unstable;
     settings = {
       environment = {
         CLUTTER_BACKEND = "wayland";
@@ -25,15 +26,15 @@ in {
         TERMINAL = "ghostty";
       };
       spawn-at-startup = [
-		(makeCommand "uwsm finalize")
+        (makeCommand "uwsm finalize")
         (makeCommand "hyprlock")
         (makeCommand "swww-daemon")
-        (makeCommand "uwsm app -- waybar")
-        (makeCommand "uwsm app -- keepassxc")
-        (makeCommand "uwsm app -- xwayland-satellite")
-        (makeCommand "uwsm app -- telegram-desktop")
-        (makeCommand "uwsm app -- wl-paste --type image --watch cliphist store")
-        (makeCommand "uwsm app -- wl-paste --type text --watch cliphist store")
+        (makeCommand "waybar")
+        (makeCommand "keepassxc")
+        (makeCommand "xwayland-satellite")
+        (makeCommand "telegram-desktop")
+        (makeCommand "wl-paste --type image --watch cliphist store")
+        (makeCommand "wl-paste --type text --watch cliphist store")
       ];
       input = {
         keyboard.xkb.layout = "us";
@@ -59,7 +60,7 @@ in {
             width = 1920;
             height = 1080;
           };
-          scale = 0.85;
+          scale = 1;
           position = {
             x = 0;
             y = 0;
