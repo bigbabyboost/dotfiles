@@ -12,10 +12,10 @@
 > | OS             | NixOS ❄️                                                |
 > | Window Manager | Hyprland 🧼                                             |
 > | Shell          | Fish 🐟                                                 |
-> | Terminal       | Ghostty                                                 |
+> | Terminal       | Ghostty 👻                                              |
 > | Bar            | Astal 🍭                                                |
 > | Notification   | Astal 🍭                                                |
-> | Lock           | Hyprlock                                                |
+> | Lock           | Hyprlock 🔒                                             |
 
 ## :package: Repository Contents
 
@@ -28,7 +28,8 @@
 
 ## :bulb: Acknowledgments
 
-- [chatcat7](https://github.com/chadcat7) - my repo started as a fork from his
+- [fufexan](https://github.com/fufexan) - my repo started as a fork from his
+- [chatcat7](https://github.com/chadcat7) - for the inspiration for his nix repo also
 - [ryxhn](https://github.com/rxyhn) - for the inspiration for his nix repo also
 - [kewin-y](https://github.com/kewin-y) - for the ags configuration as well as other inspirations
 - [Elythh](https://github.com/elytth) - for the ags configuration as
