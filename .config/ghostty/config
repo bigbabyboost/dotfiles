@@ -1,32 +1,10 @@
+background-opacity = 1.000000
+font-family = Maple Mono
 font-size = 11
-#font-codepoint-map = U+23FB-U+23FE,U+2665,U+26A1,U+2B58,U+E000-U+E00A,U+E0A0-U+E0A3,U+E0B0-U+E0D4,U+E200-U+E2A9,U+E300-U+E3E3,U+E5FA-U+E6AA,U+E700-U+E7C5,U+EA60-U+EBEB,U+F000-U+F2E0,U+F300-U+F32F,U+F400-U+F4A9,U+F500-U+F8FF,U+F0001-U+F1AF0=Symbols Nerd Font Mono
-#font-codepoint-map = U+4E00-U+9FFF,U+3400-U+4DBF=Maple Mono NF CN
-font-family = "Maple Mono NF CN"
-font-style = Medium
-#font-family = "HackGen35 Console Bold"
-#font-family = "Symbols Nerd Font"
-#font-feature = "cv25"
-#font-feature = "cv26"
-#font-feature = "cv27"
-#font-feature = "cv32"
-#font-feature = "ss02"
-#font-feature = "ss03"
-#font-feature = "ss08"
-#font-feature = "ss09"
-
-cursor-style=block
 term = xterm-256color
-mouse-hide-while-typing = true
-window-decoration = false
-theme = Matugen
-shell-integration-features = no-cursor
-window-padding-y = 25
+theme = kanagawa
+window-decoration = true
 window-padding-x = 25
-window-width = 115
-window-height = 24
-gtk-single-instance = true
-#gtk-tabs-location = hidden
-#custom-shader = shaders/glow.glsl
-# keybinds
-#keybind = global:alt+tab=toggle_tab_overview
-#keybind = global:cmd+tab =toggle_tab_overview
+window-padding-y = 25
+window-width = 75
+window-height = 25

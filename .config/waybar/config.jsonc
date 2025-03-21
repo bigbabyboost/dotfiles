@@ -1,0 +1,172 @@
+{
+	// "reload_style_on_change": true, // debug purpose
+	"layer": "top",
+	"spacing": 4,
+	"exclusive": true,
+	"margin-top": 5,
+	"margin-left": 7,
+	"margin-right": 7,
+	"modules-left": [
+		"niri/workspaces",
+		"mpris"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"group/info",
+		"custom/sep",
+		"wireplumber",
+		"network",
+		"battery",
+	],
+	"niri/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			 "default": "",
+			 "active": "",
+		},
+		"persistent-workspaces": {
+			"*": 5,
+		}
+	},
+    "group/info": {
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 300,
+        "transition-right-to-left": true
+      },
+      "modules": ["tray", "custom/notifications"]
+    },
+
+    "custom/notifications": {
+      "tooltip": false,
+      // I don't know why "{icon} {}" doesn't work
+      "format": "{} {icon}",
+      "format-icons": {
+        "notification": "󱅫",
+        "none": "󰂚",
+        "dnd-notification": "󰂛",
+        "dnd-none": "󰂛",
+        "inhibited-notification": "󰂚",
+        "inhibited-none": "󰂚",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-inhibited-none": "󰂛"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+    	
+	"clock": {
+		"interval": 1,
+		"format": "{:%I:%M %p}",
+		"format-alt": "{:%d/%m/%y %I:%M:%S %p}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+				"months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            },
+			"actions": {
+				"on-click-right": "mode",
+				"on-scroll-up": "shift_up",
+				"on-scroll-down": "shift_down",
+			},
+        },
+	},
+	"tray": {
+		"icon-size": 12,
+		"spacing": 5,
+	},
+	"custom/sep": {
+		"format": "|",
+		"tooltip": false,
+	},
+	"mpris": {
+		// "interval": 1,
+		"player-icons": {
+			"firefox": "",
+			"spotify": "",
+		},
+		"status-icons": {
+			"playing": "▶",
+			"paused": "⏸",
+		},
+		// "format": "{player_icon} {status_icon} {artist} - {title}",
+		"format-playing": "<span font-family=\"Font Awesome 6 Free\">{player_icon} </span> {artist} - {title}",
+		"format-paused": "<span font-family=\"Font Awesome 6 Free\">{status_icon} </span> {artist} - {title}",
+		"format-stopped": "",
+		"tooltip-format": "{dynamic}",
+		"format-stopped": "",
+		"dynamic-len": 50,
+	},
+	"wireplumber": {
+		"format": "{icon}",
+		"format-muted": "",
+		"tooltip-format": "Volume: {volume}%",
+		"on-click": "pavucontrol",
+		"format-icons": ["", "", ""]
+	},
+	"network": {
+		"format-wifi": "",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+		"format-ethernet": "",
+		"tooltip-format-ethernet": "",
+		"format-disconnected": "",
+		"tooltip-format-disconnected": "disconnected",
+
+		"on-click": "kitty nmtui"
+	},
+	"battery": {
+		"interval": 60,
+		"states": {
+			"warning": 20,
+			"critical": 10,
+		},
+		"format": "{icon}",
+		"format-icons": ["", "", "", "", ""],
+		"format-time": "{H}h {M}min left",
+		"tooltip-format": "{capacity}% ({time})",
+		"tooltip-format-charging": "{capacity}% (charging)",
+	},
+	"group/powers": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "not-power",
+			"transition-left-to-right": false,
+		},
+		"modules": [
+			"custom/power",
+			// "custom/logout",
+			"custom/lock",
+			"custom/reboot"
+		],
+	},
+	"custom/power": {
+		"format": "",
+		"tooltip": false,
+		"on-double-click": "halt",
+	},
+	"custom/lock": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "swaylock",
+	},
+	"custom/reboot": {
+		"format": "󰜉",
+		"tooltip": false,
+		"on-double-click": "reboot",
+	}
+}
