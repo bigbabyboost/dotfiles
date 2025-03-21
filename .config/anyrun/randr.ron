@@ -1,0 +1,4 @@
+Config(
+  prefi: ":dp",
+  max_entries: 5,
+)
