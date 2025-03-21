@@ -1,6 +1,4 @@
 # Niri Dotfiles
-> [!IMPORTANT]
-> Deprecated
 
 **Wayaland Compositor** : Niri
 <br/>**Bar** : Waybar
