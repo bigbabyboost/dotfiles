@@ -25,7 +25,7 @@ in {
     enable = true;
 
     plugins = with pkgs; [
-      hyprlandPlugins.hyprscroller
+      # hyprlandPlugins.hyprscroller
       # hyprbars
     ];
 
