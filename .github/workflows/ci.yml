@@ -34,4 +34,53 @@ jobs:
           extraPullNames: pre-commit-hooks,nix-community
           skipPush: ${{ github.ref != 'refs/heads/main' || github.event_name != 'push' }}
 
-      # Monthly fla
+      # Monthly flake.lock update
+      - name: Update flake.lock (Monthly)
+        if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 0 25 * *' }}
+        uses: DeterminateSystems/update-flake-lock@v25
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          inputs: nixpkgs system disko niri nix-index-db nix-gaming zen-browser flake-parts hm hyprland hyprland-contrib hyprland-plugins hyprlock hyprpaper nix-yazi-flavors nvix plasma-manager yazi quickshell tailray hypridle pre-commit-hooks
+          branch: monthly-lock
+          git-author-name: 'bigbabyboost'
+          git-author-email: 'ah0199004@gmail.com'
+          git-committer-name: 'bigbabyboost'
+          git-committer-email: 'ah0199004@gmail.com'
+          commit-msg: 'chore(lockfile): update flake.lock'
+          pr-title: 'chore(lockfile): update flake.lock'
+          pr-labels: |
+            dependencies
+            automated
+            monthly
+
+      # Weekly flake.lock update
+      - name: Update flake.lock (Weekly)
+        if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 0 * * 0' }}
+        uses: DeterminateSystems/update-flake-lock@v25
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          inputs: nixpkgs system disko niri nix-index-db nix-gaming zen-browser flake-parts hm hyprland hyprland-contrib hyprland-plugins hyprlock hyprpaper nix-yazi-flavors nvix plasma-manager yazi quickshell tailray hypridle pre-commit-hooks
+          branch: weekly-lock
+          git-author-name: 'bigbabyboost'
+          git-author-email: 'ah0199004@gmail.com'
+          git-committer-name: 'bigbabyboost'
+          git-committer-email: 'ah0199004@gmail.com'
+          commit-msg: 'chore(lockfile): update flake.lock'
+          pr-title: 'chore(lockfile): update flake.lock'
+          pr-labels: |
+            dependencies
+            automated
+            weekly
+
+      # Show flake outputs
+      - run: nix flake show
+
+      # Optional: Build something from your flake like a devShell or system config
+      - name: Build NixOS configuration
+        run: nix build ".#nixosConfigurations.${HOSTNAME}.config.system.build.toplevel"
+        env:
+          HOSTNAME: ionia  # replace with your actual hostname key
+
+      # Optional: Build dev shell to ensure it works
+      - name: Build devShell
+        run: nix develop --command true
